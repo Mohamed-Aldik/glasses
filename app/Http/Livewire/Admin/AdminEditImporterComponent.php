@@ -32,18 +32,18 @@ class AdminEditImporterComponent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields, [
-            'name' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'phone' => 'required|unique:users|digits_between:4,20',
             'approved' => 'required',
         ]);
     }
     public function updateCustomer()
     {
         $this->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'phone' => 'required|unique:users|digits_between:4,20',
             'approved' => 'required',
         ]);
         $customer=User::find($this->idd);

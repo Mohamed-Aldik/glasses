@@ -4,16 +4,12 @@
 
     <div class="alert alert-dark" role="alert">
         <a href="{{route('admin.add.lens')}}" class="btn btn-success pull-right"> إضافة عدسة  </a>
-        
+           @error('file') <span class="error">{{ $message }}</span> @enderror
+ 
 <form wire:submit.prevent="upload">
 
     <input type="file" wire:model="file">
-
- 
-
-    @error('photo') <span class="error">{{ $message }}</span> @enderror
-
- 
+                <div wire:loading wire:target="file">جاري التحميل </div>
 
     <button type="submit" class="btn btn-success">Save </button>
 
@@ -29,6 +25,7 @@
     <table class="table table-bordered">
         <thead>
           <tr>
+            <th></th>
             <th scope="col">اسم الشركة</th>
             <th scope="col">اسم العدسة</th>
             <th scope="col">SPH</th>
@@ -41,10 +38,12 @@
           </tr>
         </thead>
         <tbody>
+           <?php $count = 1; ?>
             @foreach ($lenses as $lens)
 
 
           <tr>
+           <td> {{ $count }}</td>
             <td>{{$lens->company}}</td>
             <td>{{$lens->lens_name}}</td>
             <td>{{$lens->sph}}</td>
@@ -62,6 +61,7 @@
                 </a>
             </td>
           </tr>
+          <?php $count++; ?>
           @endforeach
         </tbody>
       </table>

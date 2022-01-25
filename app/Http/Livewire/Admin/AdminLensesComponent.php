@@ -11,12 +11,11 @@ class AdminLensesComponent extends Component
     use WithFileUploads;
 
     public $file;
-
     public function upload()
     {
         $this->validate([
 
-            'file' => 'required', 
+            'file' =>'required|file|mimes:xls,xlsx|max:204800',
 
         ]);
         Excel::import(new UsersImport, $this->file);

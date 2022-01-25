@@ -17,7 +17,7 @@ class AdminEditCustomerComponent extends Component
     {
         
         $this->idd = $id;
-        $customer=User::where('utype', 'USR')->find($id);
+        $customer=User::where('utype|USR')->find($id);
         if($customer){
         $this->name = $customer->name;
         $this->email = $customer->email;
@@ -31,18 +31,18 @@ class AdminEditCustomerComponent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields, [
-            'name' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'phone' => 'required','unique:users','digits_between:4,20',
             'approved' => 'required',
         ]);
     }
     public function updateCustomer()
     {
         $this->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'phone' => 'required|unique:users','digits_between:4,20',
             'approved' => 'required',
         ]);
         $customer=User::find($this->idd);
@@ -51,7 +51,7 @@ class AdminEditCustomerComponent extends Component
         $customer->phone = $this->phone;
         $customer->approved = $this->approved;
         $customer->save();
-        session()->flash('message', 'Customer has been update successfully!');
+        session()->flash('message|Customer has been update successfully!');
     }
 
     public function render()

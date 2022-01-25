@@ -29,7 +29,6 @@
     <table class="table table-bordered">
         <thead>
           <tr>
-            <th scope="col">الصورة</th>
             <th scope="col">اسم الشركة</th>
             <th scope="col">اسم العدسة</th>
             <th scope="col">SPH</th>
@@ -46,7 +45,6 @@
 
 
           <tr>
-            <td>{{$lens->image}}</td>
             <td>{{$lens->company}}</td>
             <td>{{$lens->lens_name}}</td>
             <td>{{$lens->sph}}</td>

@@ -20,8 +20,14 @@
                                 </a>
                             </div>
                             <div class="product-info">
-                                <a href="#" class="product-name"><span>{{ $lens->company }} </span></a>
-                                <div class="wrap-price"><span class="product-price">@if (isset(auth()->user()->approved)) {{ auth()->user()->approved == 1 ? $lens->regular_price : '' }} @endif</span>
+                                <a href="#" class="product-name"><span>CYL: {{ $lens->cyl}} </span></a>
+                                <a href="#" class="product-name"><span>SPH: {{ $lens->sph }} </span></a>
+                                <div class="wrap-price"><span class="product-price">@if (isset(auth()->user()->approved))
+                                سعر البيع  :
+                                 {{ auth()->user()->approved == 1 ? $lens->regular_price : '' }} <br>
+                                 سعر الجملة: 
+                                 {{ auth()->user()->approved == 1 ? $lens->wholesale_price : '' }}
+                                 @endif</span>
                                 </div>
                                 <a href="#" class="btn add-to-cart">Add To Cart</a>
                             </div>
@@ -50,7 +56,7 @@
 
                 <div>
 
-                    <div >
+                    {{-- <div >
                         <label for="exampleFormControlSelect1">Company Name</label>
                         <select wire:model="company" class="form-control" id="exampleFormControlSelect1">
                                 @foreach ($companies as $company)
@@ -69,7 +75,7 @@
                         </select>
                         @error('lense_name')<p class="text-danger">{{ $message }}</p>
                         @enderror
-                    </div>
+                    </div> --}}
                     <div >
                         <label for="exampleFormControlSelect1">SPH</label>
                         <select wire:model="sph" class="form-control" id="exampleFormControlSelect1">
@@ -327,7 +333,7 @@
                         @error('cyl')<p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div >
+                    {{-- <div >
                         <label for="exampleFormControlSelect1">Index</label>
                         <select wire:model="index" class="form-control" id="exampleFormControlSelect1">
                             <option value="1.56">1.56</option>
@@ -352,20 +358,9 @@
                         </select>
                         @error('lens_options')<p class="text-danger">{{ $message }}</p>
                         @enderror
-                    </div>
+                    </div> --}}
                 </div>
-        @if (isset(auth()->user()->approved))
-            @if (auth()->user()->approved == 1)
-                <div class="widget mercado-widget filter-widget price-filter">
-                    <h2 class="widget-title">Price</h2>
-                    <div class="widget-content">
-                        <p>
-                            <label for="amount">Price:</label>
-                        </p>
-                    </div>
-                </div><!-- Price-->
-            @endif
-        @endif
+       
     </div>
     <!--end sitebar-->
 

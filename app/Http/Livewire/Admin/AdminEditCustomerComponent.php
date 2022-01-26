@@ -17,7 +17,7 @@ class AdminEditCustomerComponent extends Component
     {
         
         $this->idd = $id;
-        $customer=User::where('utype|USR')->find($id);
+        $customer=User::where('utype','USR')->find($id);
         if($customer){
         $this->name = $customer->name;
         $this->email = $customer->email;
@@ -33,7 +33,7 @@ class AdminEditCustomerComponent extends Component
         $this->validateOnly($fields, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'phone' => 'required','unique:users','digits_between:4,20',
+            'phone' => 'required|unique:users|digits_between:4,20',
             'approved' => 'required',
         ]);
     }
@@ -42,7 +42,7 @@ class AdminEditCustomerComponent extends Component
         $this->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'phone' => 'required|unique:users','digits_between:4,20',
+            'phone' => 'required|unique:users|digits_between:4,20',
             'approved' => 'required',
         ]);
         $customer=User::find($this->idd);

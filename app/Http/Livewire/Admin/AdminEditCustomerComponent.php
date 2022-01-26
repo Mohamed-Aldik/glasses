@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use App\Models\User;
-
+use Illuminate\Validation\Rule;
 class AdminEditCustomerComponent extends Component
 {
     public $idd;
@@ -32,8 +32,8 @@ class AdminEditCustomerComponent extends Component
     {
         $this->validateOnly($fields, [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'phone' => 'required|unique:users|digits_between:4,20',
+            'email' => 'required| unique:users,email,' . $this->idd,
+            'phone' => 'required| digits_between:4,20 | unique:users,phone,' . $this->idd,
             'approved' => 'required',
         ]);
     }
@@ -41,8 +41,8 @@ class AdminEditCustomerComponent extends Component
     {
         $this->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'phone' => 'required|unique:users|digits_between:4,20',
+            'email' => 'required| unique:users,email,' . $this->idd,
+            'phone' => 'required| digits_between:4,20 | unique:users,phone,' . $this->idd,
             'approved' => 'required',
         ]);
         $customer=User::find($this->idd);
@@ -51,7 +51,7 @@ class AdminEditCustomerComponent extends Component
         $customer->phone = $this->phone;
         $customer->approved = $this->approved;
         $customer->save();
-        session()->flash('message|Customer has been update successfully!');
+        session()->flash('message','Customer has been update successfully!');
     }
 
     public function render()

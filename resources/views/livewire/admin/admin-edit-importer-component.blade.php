@@ -12,7 +12,6 @@
                 <div class="wrap-login-item ">
                     <div class="register-form form-item ">
                         <form class="form-stl" name="frm-login" wire:submit.prevent="updateCustomer">
-                            @csrf
                             <fieldset class="wrap-title">
                                 <h3 class="form-title">Update</h3>
                             </fieldset>

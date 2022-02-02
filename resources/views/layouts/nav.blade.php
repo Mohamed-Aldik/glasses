@@ -25,23 +25,30 @@
                          <ul>
                              <li class="menu-item lang-menu menu-item-has-children parent">
                                  @if (direction() == 'ltr')
-                                     <a title="{{ __('messages.english') }}" href="#"><span class="img label-before"><img
-                                                 src="{{ asset('assets/images/lang-en.png')}} " alt="lang-en"></span>{{ __('messages.english') }}<i
+                                     <a title="{{ __('messages.english') }}" href="#"><span
+                                             class="img label-before"><img
+                                                 src="{{ asset('assets/images/lang-en.png') }} "
+                                                 alt="lang-en"></span>{{ __('messages.english') }}<i
                                              class="fa fa-angle-down" aria-hidden="true"></i></a>
                                  @else
-                                     <a title="{{ __('messages.arabic') }}" href="#"><span class="img label-before"><img height="15"
-                                                 width="20" src="{{ asset('assets/images/lang-hun.png')}} "
-                                                 alt="lang-ar"></span>{{ __('messages.arabic') }}<i class="fa fa-angle-down"
-                                             aria-hidden="true"></i></a>
+                                     <a title="{{ __('messages.arabic') }}" href="#"><span
+                                             class="img label-before"><img height="15" width="20"
+                                                 src="{{ asset('assets/images/lang-hun.png') }} "
+                                                 alt="lang-ar"></span>{{ __('messages.arabic') }}<i
+                                             class="fa fa-angle-down" aria-hidden="true"></i></a>
                                  @endif
                                  <ul class="submenu lang">
-                                     <li class="menu-item"><a title="{{ __('messages.arabic') }}" href="{{ url('lang/ar') }}"><span
-                                                 class="img label-before"><img height="15" width="20"
-                                                     src="{{ asset('assets/images/lang-hun.png')}} " alt="lang-ar"></span>{{ __('messages.arabic') }}</a>
+                                     <li class="menu-item"><a title="{{ __('messages.arabic') }}"
+                                             href="{{ url('lang/ar') }}"><span class="img label-before"><img
+                                                     height="15" width="20"
+                                                     src="{{ asset('assets/images/lang-hun.png') }} "
+                                                     alt="lang-ar"></span>{{ __('messages.arabic') }}</a>
                                      </li>
-                                     <li class="menu-item"><a title="{{ __('messages.english') }}" href="{{ url('lang/en') }}"><span
-                                                 class="img label-before"><img height="15" width="20"
-                                                     src="{{ asset('assets/images/lang-en.png')}} " alt="lang-hun"></span>{{ __('messages.english') }}</a>
+                                     <li class="menu-item"><a title="{{ __('messages.english') }}"
+                                             href="{{ url('lang/en') }}"><span class="img label-before"><img
+                                                     height="15" width="20"
+                                                     src="{{ asset('assets/images/lang-en.png') }} "
+                                                     alt="lang-hun"></span>{{ __('messages.english') }}</a>
                                      </li>
                                  </ul>
                              </li>
@@ -53,17 +60,29 @@
                                                      class="fa fa-angle-down" aria-hidden="true"></i></a>
                                              <ul class="submenu curency">
                                                  <li class="menu-item">
-                                                     <a title="Dashboard " href="{{ route('admin.customer') }}">الزبائن</a>
+                                                     <a title="Dashboard "
+                                                         href="{{ route('admin.customer') }}">الزبائن</a>
                                                  </li>
                                                  <li class="menu-item">
-                                                     <a title="Dashboard " href="{{ route('admin.importer') }}">الموردين</a>
+                                                     <a title="Dashboard "
+                                                         href="{{ route('admin.importer') }}">الموردين</a>
                                                  </li>
                                                  <li class="menu-item">
-                                                     <a title="products" href="{{ route('admin.lenses') }}">عدسات النظارات</a>
+                                                     <a title="Dashboard "
+                                                         href="{{ route('admin.category') }}">الفئات</a>
+                                                 </li>
+                                                 <li class="menu-item">
+                                                     <a title="Dashboard "
+                                                         href="{{ route('admin.product') }}">المنتجات</a>
+                                                 </li>
+                                                 <li class="menu-item">
+                                                     <a title="products" href="{{ route('admin.lenses') }}">عدسات
+                                                         النظارات</a>
                                                  </li>
                                                  <li class="menu-item">
                                                      <a title="logout" href="{{ route('logout') }}"
-                                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">تسجيل خروج</a>
+                                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">تسجيل
+                                                         خروج</a>
                                                  </li>
                                                  <form id="logout-form" method="POST" action="{{ route('logout') }}">
                                                      @csrf
@@ -76,7 +95,8 @@
                                                      class="fa fa-angle-down" aria-hidden="true"></i></a>
                                              <ul class="submenu curency">
                                                  <li class="menu-item">
-                                                     <a title="Dashboard" href="{{ route('user.dashboard') }}">Dashboard</a>
+                                                     <a title="Dashboard"
+                                                         href="{{ route('user.dashboard') }}">Dashboard</a>
                                                  </li>
 
                                                  <li class="menu-item">
@@ -94,7 +114,8 @@
                                                      class="fa fa-angle-down" aria-hidden="true"></i></a>
                                              <ul class="submenu curency">
                                                  <li class="menu-item">
-                                                     <a title="Dashboard" href="{{ route('importer.dashboard') }}">Dashboard</a>
+                                                     <a title="Dashboard"
+                                                         href="{{ route('importer.dashboard') }}">Dashboard</a>
                                                  </li>
 
                                                  <li class="menu-item">
@@ -123,8 +144,8 @@
                  <div class="mid-section main-info-area">
 
                      <div class="wrap-logo-top left-section">
-                         <a href="index.html" class="link-to-home"><img src="{{ asset('assets/images/logo-top-1.jpg') }}"
-                                 alt="mercado"></a>
+                         <a href="index.html" class="link-to-home"><img
+                                 src="{{ asset('assets/images/logo-top-1.jpg') }}" alt="mercado"></a>
                      </div>
 
                      <div class="wrap-search center-section">
@@ -192,11 +213,13 @@
                                  <a href="{{ route('home') }}" class="link-term mercado-item-title"><i
                                          class="fa fa-home" aria-hidden="true"></i></a>
                              </li>
-                             
+
                              <li class="menu-item">
                                  <a href="{{ route('lenses') }}"
                                      class="link-term mercado-item-title">{{ __('messages.glasses_lenses') }}</a>
                              </li>
+                             @livewire('nav-component')
+
                          </ul>
                      </div>
                  </div>

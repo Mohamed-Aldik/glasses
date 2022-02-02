@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLensesTable extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CreateLensesTable extends Migration
      */
     public function up()
     {
-        Schema::create('lenses', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('company');
-            $table->string('lens_name');
-            $table->string('sph');
-            $table->string('cyl');
-            $table->string('index');
-            $table->string('lens_option');
+            $table->string('name');
+            $table->text('description');
             $table->decimal('regular_price');
             $table->decimal('wholesale_price')->nullable();
+            $table->foreignId('category_id')->nullable()->constrained('categories');
             $table->foreignId('user_id')->nullable()->constrained('users');
             $table->timestamps();
         });
@@ -35,6 +33,6 @@ class CreateLensesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lenses');
+        Schema::dropIfExists('products');
     }
 }

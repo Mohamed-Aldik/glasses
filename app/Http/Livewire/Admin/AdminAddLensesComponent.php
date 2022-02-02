@@ -53,6 +53,7 @@ class AdminAddLensesComponent extends Component
         $lens->lens_option = $this->lens_options;
         $lens->regular_price = $this->regular_price;
         $lens->wholesale_price = $this->wholesale_price;
+        $lens->user_id = auth()->user()->id;
         $lens->save();
         session()->flash('message', 'Lens has been created successfully!');
     }

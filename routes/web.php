@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\CategoryComponent;
+use App\Http\Livewire\LensComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,8 @@ use App\Http\Livewire\CategoryComponent;
 |
 */
 Route::get('/',HomeComponent::class)->name('home');
-Route::get('/lenses',CategoryComponent::class)->name('lenses');
+Route::get('/lenses',LensComponent::class)->name('lenses');
+Route::get('/category/{id}',CategoryComponent::class)->name('category');
 
 
 Route::get('lang/{lang}', function ($lang) {

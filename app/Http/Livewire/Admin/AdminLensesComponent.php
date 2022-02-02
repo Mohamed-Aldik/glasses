@@ -6,6 +6,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Livewire\Component;
 use App\Imports\UsersImport;
 use Livewire\WithFileUploads;
+
 class AdminLensesComponent extends Component
 {
     use WithFileUploads;
@@ -24,6 +25,7 @@ class AdminLensesComponent extends Component
 
     public function deleteLens($id)
     {
+        
         $lens = Lense::find($id);
         $lens->delete();
         session()->flash('message', 'Lens has been delete successfully!');

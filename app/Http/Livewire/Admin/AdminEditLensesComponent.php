@@ -64,7 +64,7 @@ class AdminEditLensesComponent extends Component
             'wholesale_price' => 'required',
 
         ]);
-        $lens = new Lense();
+        $lens = Lense::find($this->idd);
         $lens->company = $this->company;
         $lens->lens_name = $this->lense_name;
         $lens->sph = $this->sph;

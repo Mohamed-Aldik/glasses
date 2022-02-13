@@ -4,10 +4,36 @@
 
 
         <!--end wrap shop control-->
+<style>
+                    .product-wish{
+                        position: absolute;
+                        top: 10%;
+                        left: 0;
+                        z-index: 99;
+                        right: 30px;
+                        text-align: right;
+                        padding-top: 0;
+                    }
+                    .product-wish .fa{
+                        color: #cbcbcb;
+                        font-size: 32px;
 
+                        }
+                    .product-wish .fa:hover{
+                        color: #ff7007;
+
+                    }
+                    .fill-heart{
+                        color:#ff7007 !important;
+                    }
+                    </style>
         <div class="row">
 
             <ul class="product-list grid-products equal-container">
+                            @php
+                        $witems= Cart::instance('wishlist')->content()->pluck('id');
+
+                      @endphp
                 @foreach ($lenses as $lens)
 
 
@@ -28,9 +54,22 @@
                                  {{ auth()->user()->approved == 1 ? $lens->regular_price : '' }} , 
                                  سعر الجملة: 
                                  {{ auth()->user()->approved == 1 ? $lens->wholesale_price : '' }}
-                                 @endif</span>
+                                 </span>
                                 </div>
-                                <a href="#" class="btn add-to-cart">Add To Cart</a>
+                                <a href="#" wire:click.prevent="store({{$lens->id}},'{{$lens->lens_name}}',{{$lens->regular_price}})" class="btn add-to-cart">Add To Cart</a>
+                                <div class="product-wish">
+                                        @if($witems->contains($lens->id))
+                                        <a href="#" wire:click.prevent="removeFromWishlist({{$lens->id}})">
+                                            <i class="fa fa-heart fill-heart"></i>
+                                        </a>
+                                        @else
+                                        <a href="#"  wire:click.prevent="addWishlist({{$lens->id}},'{{$lens->lens_name}}',{{$lens->regular_price}})">
+                                            <i class="fa fa-heart"></i>
+                                        </a>
+                                        @endif
+                                    </div>
+                                @endif
+
                             </div>
                         </div>
                     </li>

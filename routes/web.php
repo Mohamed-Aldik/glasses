@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\LensComponent;
+use App\Http\Livewire\CartComponent;
+use App\Http\Livewire\Wishlist;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,8 @@ use App\Http\Livewire\LensComponent;
 Route::get('/',HomeComponent::class)->name('home');
 Route::get('/lenses',LensComponent::class)->name('lenses');
 Route::get('/category/{id}',CategoryComponent::class)->name('category');
+Route::get('/cart',CartComponent::class)->name('cart');
+Route::get('/wishlist',Wishlist::class)->name('wishlist');
 
 
 Route::get('lang/{lang}', function ($lang) {

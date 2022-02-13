@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Lense;
 use Livewire\WithPagination;
+use Cart;
 
 class LensComponent extends Component
 {
@@ -18,6 +19,31 @@ class LensComponent extends Component
     public $wholesale_price;
 
     use WithPagination;
+
+    public function addWishlist($lensid, $lensename, $lensprice)
+    {
+        Cart::instance('wishlist')->add($lensid, $lensename, 1, $lensprice)->associate('App\Models\Lense');
+        $this->emitTo('wishlist-count', 'refreshComponent');
+    }
+
+    public function removeFromWishlist($product_id)
+    {
+        foreach (Cart::instance('wishlist')->content() as $witem) {
+            if ($witem->id == $product_id) {
+                Cart::instance('wishlist')->remove($witem->rowId);
+                $this->emitTo('wishlist-count', 'refreshComponent');
+                return;
+            }
+        }
+    }
+    
+    public function store($lensid, $lensename, $lensprice)
+    {
+
+        Cart::instance('cart')->add($lensid, $lensename, 1, $lensprice)->associate('App\Models\Lense');
+        session()->flash('success_message', 'Item added in Cart');
+        return redirect()->route('cart');
+    }
 
     public function render()
     {

@@ -173,24 +173,12 @@
                      </div>
 
                      <div class="wrap-icon right-section">
-                         <div class="wrap-icon-section wishlist">
-                             <a href="#" class="link-direction">
-                                 <i class="fa fa-heart" aria-hidden="true"></i>
-                                 <div class="left-info">
-                                     <span class="index">0 {{ __('messages.items') }}</span>
-                                     <span class="title">{{ __('messages.wishlist') }}</span>
-                                 </div>
-                             </a>
-                         </div>
-                         <div class="wrap-icon-section minicart">
-                             <a href="#" class="link-direction">
-                                 <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-                                 <div class="left-info">
-                                     <span class="index">0 {{ __('messages.items') }}</span>
-                                     <span class="title">{{ __('messages.cart') }}</span>
-                                 </div>
-                             </a>
-                         </div>
+                        
+							@livewire('wishlist-count')
+
+                         							@livewire('cart-count-component')
+
+                         
                          <div class="wrap-icon-section show-up-after-1024">
                              <a href="#" class="mobile-navigation">
                                  <span></span>

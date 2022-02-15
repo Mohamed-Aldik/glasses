@@ -12,14 +12,15 @@
     @endif
     <form wire:submit.prevent="update">
      <label for="formGroupExampleInput6" class="form-label">صورة المنتج</label>
-        <input type="file" class="input-file" id="formGroupExampleInput6" wire:model="image"  >
-        @if ($image)
-        <div>
-        <img src="{{$image->temporaryUrl()}}" width="120" />
-        </div>
+         <input type="file" class="input-file" id="formGroupExampleInput6" wire:model="newimage"  >
+        @if ($newimage)
+        <img src="{{$newimage->temporaryUrl()}}" width="120" />
         <br>
+        @else
+        <img src="{{asset('assets/images/products')}}/{{$image}}" width="120" />
+
         @endif
-        @error('image')<p class="text-danger">{{$message}}</p>
+        @error('newimage')<p class="text-danger">{{$message}}</p>
         @enderror
         <label for="formGroupExampleInput" class="form-label">اسم الشركة</label>
         <input type="text" class="form-control" id="formGroupExampleInput" placeholder="اسم الشركة " wire:model="company">

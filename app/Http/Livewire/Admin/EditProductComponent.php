@@ -17,6 +17,7 @@ class EditProductComponent extends Component
     public $category_id;
     public $regular_price;
     public $wholesale_price;
+    public $newimage;
     public $idd;
     use WithFileUploads;
 
@@ -42,7 +43,7 @@ class EditProductComponent extends Component
     {
         $this->validateOnly($fields, [
             'name' => 'required',
-            'image' => 'required',
+            'newimage' => 'required|mimes:jpeg,png',
             'company' => 'required',
             'description' => 'required',
             'category_id' => 'required',
@@ -55,7 +56,7 @@ class EditProductComponent extends Component
     {
         $this->validate([
             'name' => 'required',
-            'image' => 'required',
+            'newimage' => 'required|mimes:jpeg,png',
             'company' => 'required',
             'description' => 'required',
             'category_id' => 'required',
@@ -70,9 +71,11 @@ class EditProductComponent extends Component
         $product->category_id = $this->category_id;
         $product->regular_price = $this->regular_price;
         $product->wholesale_price = $this->wholesale_price;
-        $imageName = Carbon::now()->timestamp . '.' . $this->image->extension();
-        $this->image->storeAs('products', $imageName);
-        $product->image = $imageName;
+        if ($this->newimage) {
+            $imageName = Carbon::now()->timestamp . '.' . $this->newimage->extension();
+            $this->newimage->storeAs('products', $imageName);
+            $product->image = $imageName;
+        }
         $product->user_id = auth()->user()->id;
         $product->save();
         session()->flash('message', 'Product has been created successfully!');

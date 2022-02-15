@@ -23,7 +23,7 @@ class AddProductComponent extends Component
     {
         $this->validateOnly($fields, [
             'name' => 'required',
-            'image' => 'required',
+            'image' => 'required|mimes:jpeg,png',
             'company' => 'required',
             'description' => 'required',
             'category_id' => 'required',
@@ -36,7 +36,7 @@ class AddProductComponent extends Component
     {
         $this->validate([
             'name' => 'required',
-            'image' => 'required',
+            'image' => 'required|mimes:jpeg,png',
             'company' => 'required',
             'description' => 'required',
             'category_id' => 'required',

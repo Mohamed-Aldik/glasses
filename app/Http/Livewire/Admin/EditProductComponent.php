@@ -27,6 +27,8 @@ class EditProductComponent extends Component
         $product=Product::find($id);
         if($product){
         $this->name = $product->name;
+        $this->image = $product->image;
+        $this->company = $product->company;
         $this->description = $product->description;
         $this->category_id = $product->category_id;
         $this->regular_price = $product->regular_price;

@@ -14,10 +14,15 @@
      <label for="formGroupExampleInput6" class="form-label">صورة المنتج</label>
          <input type="file" class="input-file" id="formGroupExampleInput6" wire:model="newimage"  >
         @if ($newimage)
+     <div>
+
         <img src="{{$newimage->temporaryUrl()}}" width="120" />
-        <br>
+     </div>
         @else
+     <div>
+
         <img src="{{asset('assets/images/products')}}/{{$image}}" width="120" />
+     </div>
 
         @endif
         @error('newimage')<p class="text-danger">{{$message}}</p>

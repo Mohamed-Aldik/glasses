@@ -18,6 +18,7 @@
         <thead>
           <tr>
             <th></th>
+            <th scope="col">صورة المنتج</th>
             <th scope="col">اسم المنتج</th>
             <th scope="col">وصف المنتج</th>
             <th scope="col">سعر المبيع</th>
@@ -33,6 +34,7 @@
 
           <tr>
            <td> {{ $count }}</td>
+            <td><img src="{{asset('assets/images/products')}}/{{$product->image}}" width="60"/></td>
             <td>{{$product->name}}</td>
             <td>{{$product->description}}</td>
             <td>{{$product->regular_price}}</td>

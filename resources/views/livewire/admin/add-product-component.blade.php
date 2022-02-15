@@ -11,6 +11,16 @@
 
     @endif
     <form wire:submit.prevent="store">
+    
+     <label for="formGroupExampleInput6" class="form-label">صورة المنتج</label>
+        <input type="file" class="input-file" id="formGroupExampleInput6" wire:model="image"  >
+        @if ($image)
+     <div>
+        <img src="{{$image->temporaryUrl()}}" width="120" />
+        </div>
+        @endif
+        @error('image')<p class="text-danger">{{$message}}</p>
+        @enderror
     <label for="formGroupExampleInput" class="form-label">اسم الشركة</label>
         <input type="text" class="form-control" id="formGroupExampleInput" placeholder="اسم الشركة " wire:model="company">
         @error('company')<p class="text-danger">{{ $message }}</p>
@@ -38,6 +48,7 @@
             <label for="exampleFormControlSelect1">اسم الفئة</label>
             <select wire:model="category_id" class="form-control" id="exampleFormControlSelect1">
                 @foreach ($categories as $category)
+                    <option value=" "> </option>
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
             </select>

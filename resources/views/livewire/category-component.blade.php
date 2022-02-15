@@ -15,8 +15,7 @@
                         <div class="product product-style-3 equal-elem ">
                             <div class="product-thumnail">
                                 <a href="detail.html" title="T-Shirt Raw Hem Organic Boro Constrast Denim">
-                                    <figure><img class="size-img" src="assets/images/products/glasses.jpg"
-                                            alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
+                                    <figure><img class="size-img" src="{{asset('assets/images/products')}}/{{$product->image}}" alt="Product"></figure>
                                 </a>
                             </div>
                             <div class="product-info">

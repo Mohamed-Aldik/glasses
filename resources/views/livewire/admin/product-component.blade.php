@@ -24,6 +24,9 @@
             <th scope="col">سعر المبيع</th>
             <th scope="col">سعر الجملة</th>
             <th scope="col">الفئة</th>
+              {{-- @if(auth()->user()->utype === "ADM")
+            <th scope="col">اسم المورد</th>
+            @endif --}}
             <th scope="col">الخيارات</th>
           </tr>
         </thead>
@@ -40,6 +43,9 @@
             <td>{{$product->regular_price}}</td>
             <td>{{$product->wholesale_price}}</td>
             <td>{{$product->category_id}}</td>
+             @if(auth()->user()->utype === "ADM")
+            <td>{{$product->user->name}}</td>
+            @endif
             <td>
                 <a href="{{route('admin.edit.product',['id'=>$product->id])}}" >
                     <i class="fa fa-edit fa-2x"> </i>

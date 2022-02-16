@@ -117,6 +117,16 @@
                                                      <a title="Dashboard"
                                                          href="{{ route('importer.dashboard') }}">Dashboard</a>
                                                  </li>
+                                                 @if (isset(auth()->user()->approved))
+                                                 <li class="menu-item">
+                                                     <a title="Dashboard "
+                                                         href="{{ route('admin.product') }}">المنتجات</a>
+                                                 </li>
+                                                 <li class="menu-item">
+                                                     <a title="products" href="{{ route('admin.lenses') }}">عدسات
+                                                         النظارات</a>
+                                                 </li>
+                                     @endif
 
                                                  <li class="menu-item">
                                                      <a title="logout" href="{{ route('logout') }}"
@@ -173,12 +183,12 @@
                      </div>
 
                      <div class="wrap-icon right-section">
-                        
-							@livewire('wishlist-count')
 
-                         							@livewire('cart-count-component')
+                         @livewire('wishlist-count')
 
-                         
+                         @livewire('cart-count-component')
+
+
                          <div class="wrap-icon-section show-up-after-1024">
                              <a href="#" class="mobile-navigation">
                                  <span></span>

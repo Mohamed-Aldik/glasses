@@ -34,6 +34,9 @@
             <th scope="col">خيارات العدسة</th>
             <th scope="col">سعر البيع</th>
             <th scope="col">سعر الجملة</th>
+            {{-- @if(auth()->user()->utype === "ADM")
+            <th scope="col">اسم المورد</th>
+            @endif --}}
             <th scope="col">الخيارات</th>
           </tr>
         </thead>
@@ -52,6 +55,10 @@
             <td>{{$lens->lens_option}}</td>
             <td>{{$lens->regular_price}}</td>
             <td>{{$lens->wholesale_price}}</td>
+            @if(auth()->user()->utype === "ADM")
+            <td>{{$lens->user->name}}</td>
+            @endif
+
             <td>
                 <a href="{{route('admin.edit.lens',['id'=>$lens->id])}}" >
                     <i class="fa fa-edit fa-2x"> </i>

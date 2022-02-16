@@ -10,6 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Product;
+use App\Models\Lense;
 
 class User extends Authenticatable
 {
@@ -66,5 +67,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Product::class);
     }
-    
+    public function lenses()
+    {
+        return $this->hasMany(Lense::class);
+    }
 }

@@ -15,6 +15,9 @@ class ProductComponent extends Component
     }
     public function render()
     {
+        if(auth()->user()->utype === "ADM")
+        $products = Product::all();
+else if(auth()->user()->utype === "IMP")
         $products = Product::where('user_id', auth()->user()->id)->get();
         return view('livewire.admin.product-component', ['products' => $products])->layoutData(['title' => 'Product']);
     }

@@ -19,10 +19,10 @@ class AdminEditLensesComponent extends Component
     
     public function mount($id)
     {
-        
         $this->idd = $id;
         $lens=Lense::find($id);
-        if($lens){
+        
+        if($lens && auth()->user()->id === $lens->user_id || auth()->user()->utype ==="ADM" && $lens){
         $this->company = $lens->company;
         $this->lense_name = $lens->lense_name;
         $this->sph = $lens->sph;

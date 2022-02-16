@@ -26,7 +26,9 @@ class EditProductComponent extends Component
         
         $this->idd = $id;
         $product=Product::find($id);
-        if($product){
+
+        if($product && auth()->user()->id === $product->user_id || auth()->user()->utype ==="ADM" && $product)
+            {
         $this->name = $product->name;
         $this->image = $product->image;
         $this->company = $product->company;

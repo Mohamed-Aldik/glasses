@@ -33,8 +33,10 @@ class AdminLensesComponent extends Component
 
     public function render()
     {
-      
+        if(auth()->user()->utype === "ADM")
         $lenses=Lense::all();
+else if(auth()->user()->utype === "IMP")
+$lenses=Lense::where('user_id', auth()->user()->id)->get();      
         return view('livewire.admin.admin-lenses-component',['lenses'=>$lenses])->layoutData(['title' => 'lenses']);
     }
 }

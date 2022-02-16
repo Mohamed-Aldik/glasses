@@ -56,6 +56,7 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
         'authadmin' => \App\Http\Middleware\AuthAdmin::class,
+        'authuseradmin' => \App\Http\Middleware\AuthUserAdmin::class,
         'authuser' => \App\Http\Middleware\AuthUser::class,
         'authimporter' => \App\Http\Middleware\AuthImporter::class,
         'lang' => \App\Http\Middleware\Lang::class,

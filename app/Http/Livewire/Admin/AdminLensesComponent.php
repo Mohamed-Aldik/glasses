@@ -10,6 +10,7 @@ use Livewire\WithFileUploads;
 class AdminLensesComponent extends Component
 {
     use WithFileUploads;
+    public $ids =[];
 
     public $file;
     public function upload()
@@ -30,6 +31,15 @@ class AdminLensesComponent extends Component
         $lens->delete();
         session()->flash('message', 'Lens has been delete successfully!');
     }
+
+    public function deleteLenses()
+    {
+        
+        Lense::whereKey($this->ids)->delete();
+         $this->ids = [];
+        session()->flash('message', 'Lenses has been delete successfully!');
+
+        }
 
     public function render()
     {

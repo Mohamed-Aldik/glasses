@@ -7,12 +7,24 @@ use App\Models\Product;
 
 class ProductComponent extends Component
 {
+    public $ids =[];
+    
     public function deleteProduct($id)
     {
         $lens = Product::find($id);
         $lens->delete();
-        session()->flash('message', 'lens has been delete successfully!');
+        session()->flash('message', 'product has been delete successfully!');
     }
+
+    public function deleteProducts()
+    {
+        
+         Product::whereKey($this->ids)->delete();
+         $this->ids = [];
+        session()->flash('message', 'products has been delete successfully!');
+
+        }
+
     public function render()
     {
         if(auth()->user()->utype === "ADM")

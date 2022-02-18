@@ -1,7 +1,12 @@
 
 <div class="container" style="padding: 30px 0">
     
+  @if ($ids)
 
+               <a href="#" onclick="confirm('Are you sure, You want to delete this products ?') || event.stopImmediatePropagation()" wire:click.prevent="deleteLenses" class="btn btn-danger"> حذف المنتجات المحددة   </a>
+         
+
+       @endif
     <div class="alert alert-dark" role="alert">
         <a href="{{route('admin.add.lens')}}" class="btn btn-success pull-right"> إضافة عدسة  </a>
            @error('file') <span class="error">{{ $message }}</span> @enderror
@@ -25,7 +30,7 @@
     <table class="table table-bordered">
         <thead>
           <tr>
-            <th></th>
+            <th width="50px"><input type="checkbox" id="master"></th>
             <th scope="col">اسم الشركة</th>
             <th scope="col">اسم العدسة</th>
             <th scope="col">SPH</th>
@@ -34,9 +39,9 @@
             <th scope="col">خيارات العدسة</th>
             <th scope="col">سعر البيع</th>
             <th scope="col">سعر الجملة</th>
-            {{-- @if(auth()->user()->utype === "ADM")
+            @if(auth()->user()->utype === "ADM")
             <th scope="col">اسم المورد</th>
-            @endif --}}
+            @endif
             <th scope="col">الخيارات</th>
           </tr>
         </thead>
@@ -46,7 +51,7 @@
 
 
           <tr>
-           <td> {{ $count }}</td>
+           <td> {{ $count }} <input type="checkbox" value="{{ $lens->id }}" wire:model="ids"> </td>
             <td>{{$lens->company}}</td>
             <td>{{$lens->lens_name}}</td>
             <td>{{$lens->sph}}</td>
@@ -63,7 +68,7 @@
                 <a href="{{route('admin.edit.lens',['id'=>$lens->id])}}" >
                     <i class="fa fa-edit fa-2x"> </i>
                 </a>
-                <a href="#" onclick="confirm('Are you sure, You want to delete this lense ?') || event.stopImmediatePropagation()" wire:click.prevent="deleteLens({{$lens->id}})" style="margin-left:10px" >
+                <a href="#" onclick="confirm('Are you sure, You want to delete this lens ?') || event.stopImmediatePropagation()" wire:click.prevent="deleteLens({{$lens->id}})" style="margin-left:10px" >
                     <i class="fa fa-times fa-2x text-danger"> </i>
                 </a>
             </td>

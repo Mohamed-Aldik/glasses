@@ -19,11 +19,11 @@ class UsersImport implements ToModel
         if( !$schedule){
         return new Lense([
         'company'  => $row['0'],
-         'lens_name'   => $row['1'],
+         'lens_name'   => strtoupper($row['1']),
          'sph'   => $row['2'],
          'cyl'    => $row['3'],
          'index'  => $row['4'],
-         'lens_option'   => $row['5'],
+         'lens_option'   =>  strtoupper($row['5']) ,
          'regular_price'   => $row['6'],
          'wholesale_price'   => $row['7'],
          'user_id' => auth()->user()->id

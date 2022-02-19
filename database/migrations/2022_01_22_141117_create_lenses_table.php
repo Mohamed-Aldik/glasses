@@ -17,9 +17,9 @@ class CreateLensesTable extends Migration
             $table->id();
             $table->string('company');
             $table->string('lens_name');
-            $table->string('sph');
-            $table->string('cyl');
-            $table->string('index');
+            $table->decimal('sph');
+            $table->decimal('cyl');
+            $table->decimal('index');
             $table->string('lens_option');
             $table->decimal('regular_price');
             $table->decimal('wholesale_price')->nullable();

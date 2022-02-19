@@ -19,9 +19,9 @@
         <div class="form-group">
             <label for="exampleFormControlSelect1">اسم العدسة</label>
             <select wire:model="lense_name" class="form-control" id="exampleFormControlSelect1">
-                <option value="singlevision">single vision</option>
-                <option value="progressive">progressive</option>
-                <option value="bifocal">Bi-focal</option>
+                 <option value="SINGLE VISION">SINGLE VISION</option>
+                <option value="PROGRESSIVE">PROGRESSIVE</option>
+                <option value="BIFOCAL">BIFOCAL</option>
             </select>
             @error('lense_name')<p class="text-danger">{{ $message }}</p>
             @enderror
@@ -300,13 +300,13 @@
             <label for="exampleFormControlSelect1">خيارات العدسة</label>
             <select wire:model="lens_options" class="form-control" id="exampleFormControlSelect1">
                 <option selected value="">- {{ __('messages.lens_options') }} -</option>
-                <option value="plmc">PLMC</option>
-                <option value="uncoat">UNCOAT</option>
-                <option value="pgxmc">PGXMC</option>
-                <option value="poly">POLY</option>
-                <option value="blue_cut_green">BLUE CUT GREEN</option>
-                <option value="blue_cut_blue">BLUE CUT BLUE</option>
-                <option value="polorised">POLORISED</option>
+                <option value="PLMC">PLMC</option>
+                <option value="UNCOAT">UNCOAT</option>
+                <option value="PGXMC">PGXMC</option>
+                <option value="POLY">POLY</option>
+                <option value="BLUECUT GREEN">BLUECUT GREEN</option>
+                <option value="BLUECUT BLUE">BLUECUT BLUE</option>
+                <option value="POLORISED">POLORISED</option>
             </select>
             @error('lens_options')<p class="text-danger">{{ $message }}</p>
             @enderror

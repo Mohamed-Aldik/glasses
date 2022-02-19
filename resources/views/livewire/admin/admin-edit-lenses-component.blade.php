@@ -19,9 +19,9 @@
         <div class="form-group">
             <label for="exampleFormControlSelec">اسم العدسة</label>
             <select wire:model="lense_name" class="form-control" id="exampleFormControlSelec">
-                <option value="singlevision">SINGLE VISION</option>
-                <option value="progressive">progressive</option>
-                <option value="bifocal">Bi-focal</option>
+                 <option value="SINGLE VISION">SINGLE VISION</option>
+                <option value="PROGRESSIVE">PROGRESSIVE</option>
+                <option value="BIFOCAL">BIFOCAL</option>
             </select>
             @error('lense_name')<p class="text-danger">{{ $message }}</p>
             @enderror

@@ -79,6 +79,9 @@
                                                      <a title="products" href="{{ route('admin.lenses') }}">عدسات
                                                          النظارات</a>
                                                  </li>
+                                                 {{-- <li class="menu-item" >
+                                                <a title="Home Categories" href="{{route('admin.homecategories')}}">ادارة الفئات في الصفحة الرئيسية</a>
+                                            </li> --}}
                                                  <li class="menu-item">
                                                      <a title="logout" href="{{ route('logout') }}"
                                                          onclick="event.preventDefault(); document.getElementById('logout-form').submit();">تسجيل
@@ -118,15 +121,15 @@
                                                          href="{{ route('importer.dashboard') }}">Dashboard</a>
                                                  </li>
                                                  @if (isset(auth()->user()->approved))
-                                                 <li class="menu-item">
-                                                     <a title="Dashboard "
-                                                         href="{{ route('admin.product') }}">المنتجات</a>
-                                                 </li>
-                                                 <li class="menu-item">
-                                                     <a title="products" href="{{ route('admin.lenses') }}">عدسات
-                                                         النظارات</a>
-                                                 </li>
-                                     @endif
+                                                     <li class="menu-item">
+                                                         <a title="Dashboard "
+                                                             href="{{ route('admin.product') }}">المنتجات</a>
+                                                     </li>
+                                                     <li class="menu-item">
+                                                         <a title="products" href="{{ route('admin.lenses') }}">عدسات
+                                                             النظارات</a>
+                                                     </li>
+                                                 @endif
 
                                                  <li class="menu-item">
                                                      <a title="logout" href="{{ route('logout') }}"

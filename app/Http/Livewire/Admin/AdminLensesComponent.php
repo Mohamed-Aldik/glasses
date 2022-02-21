@@ -6,6 +6,7 @@ use App\Models\Lense;
 use Maatwebsite\Excel\Facades\Excel;
 use Livewire\Component;
 use App\Imports\UsersImport;
+use App\Exports\LensesExport;
 use Livewire\WithFileUploads;
 
 class AdminLensesComponent extends Component
@@ -23,6 +24,11 @@ class AdminLensesComponent extends Component
         ]);
         Excel::import(new UsersImport, $this->file);
         session()->flash('message', 'Excel Data Imported successfully.');
+    }
+
+    public function export() 
+    {
+        return Excel::download(new LensesExport, 'lenses.xlsx');
     }
 
     public function deleteLens($id)

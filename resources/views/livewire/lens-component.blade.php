@@ -216,7 +216,7 @@
                 <option value="0.75">+0.75</option>
                 <option value=">0.50">+0.50</option>
                 <option value="0.25">+0.25</option>
-                <option value="0.00">0.00</option>
+                <option value="0.00" selected="true"  >0.00</option>
                 <option value="-0.25">-0.25</option>
                 <option value="-0.50">-0.50</option>
                 <option value="-0.75">-0.75</option>

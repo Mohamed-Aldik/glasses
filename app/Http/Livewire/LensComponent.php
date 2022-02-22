@@ -11,7 +11,7 @@ class LensComponent extends Component
 {
     public $company;
     public $lense_name;
-    public $sph;
+    public $sph='0.00';
     public $cyl;
     public $index;
     public $lens_options;

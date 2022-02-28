@@ -79,9 +79,11 @@
                                                      <a title="products" href="{{ route('admin.lenses') }}">عدسات
                                                          النظارات</a>
                                                  </li>
-                                                 {{-- <li class="menu-item" >
-                                                <a title="Home Categories" href="{{route('admin.homecategories')}}">ادارة الفئات في الصفحة الرئيسية</a>
-                                            </li> --}}
+                                                 <li class="menu-item">
+                                                     <a title="Home Categories"
+                                                         href="{{ route('admin.homecategories') }}">ادارة الفئات في الصفحة
+                                                         الرئيسية</a>
+                                                 </li>
                                                  <li class="menu-item">
                                                      <a title="logout" href="{{ route('logout') }}"
                                                          onclick="event.preventDefault(); document.getElementById('logout-form').submit();">تسجيل

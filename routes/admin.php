@@ -8,6 +8,7 @@ use App\Http\Livewire\Admin\AdminEditImporterComponent;
 use App\Http\Livewire\Admin\CategoryComponent;
 use App\Http\Livewire\Admin\AddCategoryComponent;
 use App\Http\Livewire\Admin\EditCategoryComponent;
+use App\Http\Livewire\Admin\AdminHomeCategoryComponent;
 
 
 
@@ -22,5 +23,6 @@ Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function(){
     Route::get('/admin/customer/{id}',AdminEditCustomerComponent::class)->name('admin.edit.customer');
     Route::get('/admin/importer/{id}',AdminEditImporterComponent::class)->name('admin.edit.importer');
     Route::get('/admin/category/{id}',EditCategoryComponent::class)->name('admin.edit.category');
+    Route::get('/admin/home-categories', AdminHomeCategoryComponent::class)->name('admin.homecategories');
 
 });

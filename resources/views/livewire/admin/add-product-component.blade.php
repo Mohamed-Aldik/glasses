@@ -47,8 +47,8 @@
         <div class="form-group">
             <label for="exampleFormControlSelect1">اسم الفئة</label>
             <select wire:model="category_id" class="form-control" id="exampleFormControlSelect1">
+                <option value="" hidden> اختر فئة </option>
                 @foreach ($categories as $category)
-                    <option value=" "> </option>
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
             </select>

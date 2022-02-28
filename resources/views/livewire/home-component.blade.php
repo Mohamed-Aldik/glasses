@@ -29,9 +29,11 @@
                                         <div class="product-info">
                                             <a href=""
                                                 class="product-name"><span>{{ $lproduct->name }}</span></a>
+                                                @if (isset(auth()->user()->approved))
                                             <div class="wrap-price"><span
                                                     class="product-price">{{ $lproduct->regular_price }}</span>
                                             </div>
+                                            @endif
                                         </div>
                                     </div>
                                 @endforeach
@@ -94,9 +96,11 @@
                                             <div class="product-info">
                                                 <a href=""
                                                     class="product-name"><span>{{ $c_product->name }}</span></a>
+                                                    @if (isset(auth()->user()->approved))
                                                 <div class="wrap-price"><span
                                                         class="product-price">{{ $c_product->regular_price }}</span>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     @endforeach
